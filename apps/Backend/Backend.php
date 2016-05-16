@@ -65,7 +65,8 @@ class Backend
 
     public function onEvent($args)
     {
-        echo "Event {$args[0]}\n";
+        echo "on event:\n";
+        var_dump($args);
     }
 
 }
