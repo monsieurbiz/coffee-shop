@@ -14,7 +14,7 @@ class Bot extends BaseBot
      */
     public function initCommands()
     {
-        $this->loadCommand(new Command\CoffeeCommand());
+        $this->loadCatchAllCommand(new Command\CoffeeCommand());
 
         return $this;
     }
