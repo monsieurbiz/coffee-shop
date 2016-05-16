@@ -10,6 +10,6 @@ class Router extends BaseRouter
     public function __construct(LoopInterface $loop = null)
     {
         parent::__construct($loop);
-        $this->addTransportProvider(new RatchetTransportProvider("127.0.0.1", 9090));
+        $this->addTransportProvider(new RatchetTransportProvider("0.0.0.0", 9090));
     }
 }
