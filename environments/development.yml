@@ -1,0 +1,9 @@
+version: '2'
+services:
+  server:
+    build: ../services/router
+    container_name: coffee-shop
+    ports:
+      - "9090:9090"
+    volumes:
+      - ..:/var/www/coffee-shop
