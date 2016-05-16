@@ -65,8 +65,27 @@ class Backend
 
     public function onEvent($args)
     {
-        echo "on event:\n";
-        var_dump($args);
+        $data = $args[1];
+
+        if (isset($data->action)) {
+            switch ($data->action) {
+                case 'list':
+                    $this->doList($data);
+                    break;
+            }
+        }
+
+//        echo "on event:\n";
+//        var_dump($args);
     }
 
+    public function doList($data)
+    {
+        // send to web hook
+        var_dump([
+            0 => ['name' => 'voluto'],
+            1 => ['name' => 'grand mère'],
+            2 => ['name' => 'bla'],
+        ]);
+    }
 }

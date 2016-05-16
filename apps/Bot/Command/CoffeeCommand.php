@@ -11,13 +11,10 @@ use Thruway\Message\Message;
 class CoffeeCommand extends BaseCommand
 {
     protected $_connection;
-    public $session;
 
     protected function configure()
     {
         $this->setName('!cafe');
-
-
     }
 
     protected function execute($message, $context)
@@ -26,14 +23,13 @@ class CoffeeCommand extends BaseCommand
         $regex = '`^\s*!cafe\s*list`';
         $matches = [];
         if (preg_match($regex, $message['text'], $matches)) {
-            var_dump("Coucou");
-
             $this->_connection = new Connection(
                 [
                     "realm" => 'coffee-realm',
                     "url" => 'ws://127.0.0.1:9090',
                 ]
             );
+
             $this->_connection->on(
                 'open',
                 function (ClientSession $session) {
@@ -48,14 +44,14 @@ class CoffeeCommand extends BaseCommand
                                 // publish failed
                                 echo "Publish Error {$error}\n";
                             }
-                        )
-                    ;
+                        );
                 }
             );
+
             $this->_connection->open();
+
             $this->_connection->close();
         }
 //        $this->send($this->getCurrentChannel(), null, 'Hello !');
     }
-
 }
