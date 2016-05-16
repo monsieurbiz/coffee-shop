@@ -1,0 +1,14 @@
+{
+    "name": "monsieurbiz/coffee-shop",
+    "type": "app",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "voryx/thruway": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "MonsieurBiz\\CoffeeShop\\": "src/"
+        }
+    }
+}
